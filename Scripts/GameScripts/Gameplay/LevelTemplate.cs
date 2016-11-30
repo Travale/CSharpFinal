@@ -10,7 +10,7 @@ public class LevelTemplate
     public string BeginMessage;
 
     public bool doorUnlocked = true;
-    public string[] levelType;  
+    public string[] description;  
     public string[] obstacles;
 
     public string[] rooms;
@@ -36,9 +36,6 @@ public class LevelTemplate
     
                 case 2:
                     Console.WriteLine("You run into a " + obstacles[i]);
-
-                    Random randomNum = new Random();
-                    Beginning.RainbowCave.Meeting(randomNum.Next(0, Beginning.RainbowCave.obstacles.Length));
                 break;
             }
 }

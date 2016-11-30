@@ -13,6 +13,22 @@ public class Batallion
         Weapon = "kunai";
     }
 
+    public Batallion(int health, int speed, int luck, int damage, int groupnumber, string weapon)
+    {
+        Health = health;
+        Speed = speed;
+        Luck = luck;
+        Damage = damage;
+        GroupNumber = groupnumber;
+        Weapon = weapon;
+
+    }
+
+    public void MonsterEnemy(int health, int damage, int groupnumber)
+    {
+
+    }
+
     public int Health {get; set;}
     public int Speed {get; set;}
     public int Luck {get; set;}
