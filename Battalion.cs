@@ -24,17 +24,14 @@ public class Batallion
 
     }
 
-    public void MonsterEnemy(int health, int damage, int groupnumber)
-    {
-
-    }
+  
 
     public int Health {get; set;}
     public int Speed {get; set;}
     public int Luck {get; set;}
     public int Damage {get; set;}
     public int GroupNumber {get; set;}
-    static string Weapon {get; set;}
+    public string Weapon {get; set;}
 
 
 }

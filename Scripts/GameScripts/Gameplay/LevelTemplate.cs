@@ -7,7 +7,7 @@ public class LevelTemplate
         Console.WriteLine("How are you?");
     }
 
-    public string BeginMessage;
+    public string BeginMessage = "How is the weather today?";
 
     public bool doorUnlocked = true;
     public string[] description;  

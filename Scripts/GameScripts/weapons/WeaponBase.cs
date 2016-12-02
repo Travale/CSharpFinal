@@ -2,6 +2,7 @@ using System;
 
 public class Weapons
 {
+    
     public int damage = 50;
     public int swingSpeed = 4;
 

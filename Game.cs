@@ -15,27 +15,23 @@ using System;
 
 namespace EpicGame
 {
+
+   
     public class Game
     {
+        public Batallion battle = new Batallion();
+        public MonsterEnemy oni = new MonsterEnemy(60, 10, 2, 5, "oni");
+        public MonsterEnemy cursedNinja = new MonsterEnemy(50, 20, 3, 1, "cursed ninja");
+        public MonsterEnemy bladePanda = new MonsterEnemy(50, 15, 2, 3, "bladePanda");
+        public MonsterEnemy trickster = new MonsterEnemy(30, 17, 4, 2, "trickster");
 
-        DeepForestLevel forest;
-        Batallion battle;
-        List<Battalion> Battlelist;
-        List<Enemy> enemyList;
-        Enemy enemy;
-        Ability ability;
-        public Game()
-        {
-            battle = new Battalion();
-            Battlelist = new List<Battalion>();
-            enemyList = new List<enemy>();
-            enemy = new Enemy();
-            forest = new DeepForestLevel();
-            ability = new Ability();
-        }
+
+
+   
+   
     
-        public string phrase1 = "The bird sings when the clock ticks.";
-        public string phrase2 = "Will the tree fall when the spell is ready?";
+        public string phrase1 = "The spirit sings when the clock ticks.";
+        public string phrase2 = "Will the tree fall when the technique morning sun rises?";
         public string phrase3 = "Rum is the best drink when the cat is sleeping.";
         public string phrase4 = "The sword falls on the weeping stump.";
         public void Beginning()
@@ -43,131 +39,62 @@ namespace EpicGame
             RainbowCave.BeginMessage = "You enter the cave of wonders";
             RainbowCave.obstacles = new string[] {"Moving rock", "Totem", "Spike mine", "Sparkle dust"};
         }
-        public void Play()
-        {
-            InitializeMen();
-            Console.WriteLine("What weapon do you choose?");
-            Console.ReadLine();
-        }
-
-        public void InitializeMen()
-        {
-            for (int i = 0; i < battle.GroupNumber; i++)
-            {
-                //Creates a new battalion man
-                Battlelist.Add(new Battalion());
-                //Naming Battalion Man.
-                Console.Write($"\nName of Battalion number {i + 1}? : ");
-                Battlelist[i].Name = Console.ReadLine();
-
-                //Asking if he has a weapon or ability
-                Console.Write($"Does {Battlelist[i].Name} have a Weapon or Ability? : ");
-                string input = Console.ReadLine();
-
-                //Asking user for the name of the weapn
-                if (input == "Weapon")
-                {
-                    Console.Write($"What Weapon does {Battlelist[i].Name} have? : ");
-                    Battlelist[i].Weapon = Console.ReadLine();
-                    Console.WriteLine($"{Battlelist[i].Name} is now equiped with a {Battlelist[i].Weapon}!!");
-                }
-                //Asking user which ability he wants to give the battalion man
-                else
-                {
-                    battle.DisplayAbility();
-                    Console.Write($"What ability does {Battlelist[i].Name} have? (enter in the number to select ability): ");
-                    Battlelist[i].SelectAbility(int.Parse(Console.ReadLine()));
-                    Console.WriteLine($"{Battlelist[i].Name} has been empowered with {Battlelist[i].Ability}!!");
-                    Battlelist[i].Weapon = "";
-                }
-            }
-
-            Console.ReadLine();
-            //Displays list of battalion men
-            Console.WriteLine("\nHere is you Battalion!\n");
-            foreach (var item in Battlelist)
-            {
-                if(item.Weapon !="")
-                    Console.WriteLine($"{item.Name} Equiped with: {item.Weapon}!");
-                else
-                    Console.WriteLine($"{item.Name} Empowered with: {item.Ability}!");
-            }
-            //The adventure starts 
-            Console.WriteLine($"\nYour Battalion enters into the {forest.DeepForestName}\n");
-            //Spawn monsters, the monster type is dependent on the dungeon name.
-            forest.Create(enemyList);
-            Console.ReadKey();
-            //Runs combat for whatever monster you are fighting 
-            Attack();
-            //List what you have
-            //if good then move to cave()
-        }
-
-           public void Attack()
-        {
-            do
-            {
-                //Combat side for Battalion men. Test to see if any monsters exsist 
-                if (enemyList.Any())
-                {
-                    for (int i = 0; i < Battlelist.Count; i++)
-                    {
-                        if (Battlelist[i].Weapon != "" && enemyList.Any() && Battlelist.Any())
-                        {
-                            Console.WriteLine($"{Battlelist[i].Name} hits {enemyList[0].Name} with {Battlelist[i].Weapon}!\n");
-                            enemyList[0].Health -= Battlelist[0].Damage;
-                            enemy.CheckDeath(enemyList);
-                            Console.ReadLine();
-                        }
-                        else if (enemyList.Any() && Battlelist.Any())
-                        {
-                            Console.WriteLine($"{Battlelist[i].Name} hits {enemyList[0].Name} with {Battlelist[i].Ability}!\n");
-                            ability.UseAbility(Battlelist[i].Ability, enemyList);
-                            //monsterList[0].Health -= spell.Damage;
-                            enemy.CheckDeath(enemyList);
-                            Console.ReadLine();
-                        }
-                        else
-                            Console.WriteLine("You lose");
-                        //Combat for Monster
-                    }
-                }
-
-            for(int i = 0; i < enemyList.Count; i++)
-                {
-                    if (Battlelist.Any())
-                    {
-                        Random randomHit = new Random();
-                        int j = randomHit.Next(0, Battlelist.Count);
-                        Console.WriteLine($"{enemyList[i].Name} hits {Battlelist[j].Name} with a {enemyList[i].Weapon}!\n");
-                        Console.ReadLine();
-                        Battlelist[j].Health -= enemyList[i].Damage;
-                        Console.WriteLine($"{Battlelist[j].Name} has {Battlelist[j].Health} hit points left !\n");
-                        battle.CheckDeath(Battlelist);
-                        Console.ReadKey();
-                    }
-                    else Console.WriteLine("You lose"); 
-                }
-                // Console.WriteLine($"{monsterList[0].Name} hits {Battlelist[0].Name} with a {monsterList[0].Weapon}!");
-            } while (enemyList.Any() && Battlelist.Any());
-            Console.WriteLine("Good job!");
-        }
+     
 
     public static void GameTimer()
     {
         System.Threading.Thread.Sleep(3000);
     }
 
-    public void Attack(int i, Batallion.GroupNumber)
+public void OpenDoor(int i)
+{
+    Random randomDoor = new Random();
+    switch(i)
     {
-        if(Batallion.Weapon = "Sword")
+    case 1:
+        Console.WriteLine("You encounter an" + oni.Name + "behind the " + RainbowCave.doors[randomDoor.Next(0,4)]);
+    break;
+
+    case 2:
+         Console.WriteLine("You encounter an" + oni.Name + "behind the " + RainbowCave.doors[randomDoor.Next(0,4)]);
+        
+    }
+}
+    public void Play()
+    {
+        Console.WriteLine("Choose doors 1 - 4");
+        OpenDoor(int.Parse(Console.ReadLine()));
+        RainbowCave.doors = new string[] {"Demon door", "Wood door", "Steel door", "Racoon door"};
+
+
+    }
+
+    public void Attack(int i, Batallion battle)
+    {
+        Console.WriteLine("Which weapon do you have?");
+        string input = Console.ReadLine();
+        if(battle.Weapon == "Sword")
         {
-            
+            Console.WriteLine("You rush up to one range of your enemy");
         }
-        for(i = 0, Batallion < 10, i++ )
+        else if(battle.Weapon == "Bow")
         {
+            Console.WriteLine("You move in to five range of your enemy");
+        }
+        else
+            Console.WriteLine("You have nowhere to move");
+        for(i = 0;  i < battle.GroupNumber ; i++ )
+        {
+           Console.WriteLine("You gained one man");
+           battle.Damage += 5;
 
         }
+
+    }
+
+    public void EnemyEncounter()
+    {
+
     }
 
 
