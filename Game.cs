@@ -25,6 +25,10 @@ namespace EpicGame
         public MonsterEnemy bladePanda = new MonsterEnemy(50, 15, 2, 3, "bladePanda");
         public MonsterEnemy trickster = new MonsterEnemy(30, 17, 4, 2, "trickster");
 
+        public static MonsterEnemy monstergroup = new MonsterEnemy();
+
+        
+
 
 
    
@@ -53,10 +57,12 @@ public void OpenDoor(int i)
     {
     case 1:
         Console.WriteLine("You encounter an" + oni.Name + "behind the " + RainbowCave.doors[randomDoor.Next(0,4)]);
+        Attack(oni, battle);
     break;
 
     case 2:
-         Console.WriteLine("You encounter an" + oni.Name + "behind the " + RainbowCave.doors[randomDoor.Next(0,4)]);
+         Console.WriteLine("You encounter an" + cursedNinja.Name + "behind the " + RainbowCave.doors[randomDoor.Next(0,4)]);
+    break;
         
     }
 }
@@ -69,8 +75,9 @@ public void OpenDoor(int i)
 
     }
 
-    public void Attack(int i, Batallion battle)
+    public void Attack(MonsterEnemy monstergroup, Batallion battle)
     {
+        monstergroup.monster = new string[] {"oni","cursed ninja","blade panda", "trickster"};
         Console.WriteLine("Which weapon do you have?");
         string input = Console.ReadLine();
         if(battle.Weapon == "Sword")
@@ -83,15 +90,46 @@ public void OpenDoor(int i)
         }
         else
             Console.WriteLine("You have nowhere to move");
-        for(i = 0;  i < battle.GroupNumber ; i++ )
+        for(int i = 0;  i < battle.GroupNumber ; i++ )
         {
            Console.WriteLine("You gained one man");
            battle.Damage += 5;
 
         }
+        switch(monstergroup.Name)
+        {
+            case "oni":
+                battle.Health -= 5;
+                Console.WriteLine("The oni lowers your health by 5");
+            break;
+            case "cursed ninja":
+                battle.Luck -= 5;
+                Console.WriteLine("The cursed ninja lowers your luck");
+            break;
+            case "blade panda":
+                battle.Damage -= 5;
+                Console.WriteLine("The blade panda lowers your damage");
+            break;
+            case "trickster":
+                battle.Speed -= 5;
+                Console.WriteLine("The trickster lowers your speed");
+            break;
+            default:
+                battle.Health -= 10;
+                Console.WriteLine("What just happened?");
+            break;
+        }
 
     }
 
+    public void UseSpell()
+    {
+        
+    }
+    public void Recover()
+    {
+
+    }
     public void EnemyEncounter()
     {
 

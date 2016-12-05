@@ -5,6 +5,6 @@ public class DeepForestLevel: LevelTemplate
     public DeepForestLevel()
     {
         description = new string[] {"Breezy","Rotting","Rainy"};
-        obstacles
+        obstacles = new string[] {"Giant tree","Snail shell cliff","Bladed leaves","Stone hand"};
     }     
 }
