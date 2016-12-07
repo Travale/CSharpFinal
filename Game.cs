@@ -42,6 +42,7 @@ namespace EpicGame
         {
             RainbowCave.BeginMessage = "You enter the cave of wonders";
             RainbowCave.obstacles = new string[] {"Moving rock", "Totem", "Spike mine", "Sparkle dust"};
+            Play();
         }
      
 
@@ -159,27 +160,30 @@ public void OpenDoor(int i)
         while(cursedNinja.Health > 10)
         {
             Console.WriteLine("You use light beam on your enemy the cursed ninja");
+            Console.WriteLine(phrase1);
             cursedNinja.Health -= 20;
         }
 
         while(oni.Health > 10)
         {
             Console.WriteLine("You use Leaf Storm on your enemy the oni");
+            Console.WriteLine(phrase2);
             oni.Health -= 20;
         }
 
         for(int i = 0; oni.Health > i; i++)
         {
            Console.WriteLine("The oni is regenerating");
+           Console.WriteLine(phrase3);
            oni.Damage ++; 
         }
+    
         
-        
-
         Console.WriteLine("Your health is increased by" + HealthByTen(battle));
 
         switch 
     }
+    
     public void Recover()
     {
 
@@ -188,6 +192,8 @@ public void OpenDoor(int i)
     {
 
     }
+
+  
 
 
     
