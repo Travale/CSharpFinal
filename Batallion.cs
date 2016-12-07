@@ -24,8 +24,6 @@ public class Batallion
 
     }
 
-  
-
     public int Health {get; set;}
     public int Speed {get; set;}
     public int Luck {get; set;}

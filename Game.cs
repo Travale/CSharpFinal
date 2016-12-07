@@ -27,7 +27,7 @@ namespace EpicGame
 
         public static MonsterEnemy monstergroup = new MonsterEnemy();
 
-        
+        string spellItem = Console.ReadLine();
 
 
 
@@ -62,12 +62,23 @@ public void OpenDoor(int i)
 
     case 2:
          Console.WriteLine("You encounter an" + cursedNinja.Name + "behind the " + RainbowCave.doors[randomDoor.Next(0,4)]);
+         Attack(cursedNinja, battle);
     break;
-        
+
+    case 3:
+        Console.WriteLine("You encounter a" + bladePanda.Name + "behind the" + RainbowCave.doors[randomDoor.Next(0,4)] );
+        Attack(bladePanda, battle);
+    break;
+
+    case 4: 
+        Console.WriteLine("You encounter a" + trickster.Name + "behind the" + RainbowCave.doors[randomDoor.Next(0,4)]);
+        Attack(trickster, battle);
+    break; 
     }
 }
     public void Play()
     {
+        Console.WriteLine("You see three items on the ground, choose one.  Choose whirlwind star, eclipsed medallion, or shining sun bar.");
         Console.WriteLine("Choose doors 1 - 4");
         OpenDoor(int.Parse(Console.ReadLine()));
         RainbowCave.doors = new string[] {"Demon door", "Wood door", "Steel door", "Racoon door"};
@@ -122,9 +133,52 @@ public void OpenDoor(int i)
 
     }
 
+    public int HealthByTen(Batallion battle)
+    {
+        return battle.Health * 10;
+    }
     public void UseSpell()
     {
         
+        switch(spellItem)
+        {
+            case "whirlwind star":
+                Console.WriteLine("You equip the ability Leaf Storm");
+            break;
+            case "eclipsed medallion":
+                Console.WriteLine("You equip the ability Moon Strike");
+            break;
+            case "shining sun bar":
+                Console.WriteLine("You equip the ability light beam");
+            break;
+            default: 
+                Console.WriteLine("You don't have any abilities");
+            break;
+        }
+
+        while(cursedNinja.Health > 10)
+        {
+            Console.WriteLine("You use light beam on your enemy the cursed ninja");
+            cursedNinja.Health -= 20;
+        }
+
+        while(oni.Health > 10)
+        {
+            Console.WriteLine("You use Leaf Storm on your enemy the oni");
+            oni.Health -= 20;
+        }
+
+        for(int i = 0; oni.Health > i; i++)
+        {
+           Console.WriteLine("The oni is regenerating");
+           oni.Damage ++; 
+        }
+        
+        
+
+        Console.WriteLine("Your health is increased by" + HealthByTen(battle));
+
+        switch 
     }
     public void Recover()
     {
