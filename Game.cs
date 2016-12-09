@@ -12,6 +12,7 @@
 //3 abilities overall.  
 //attack object with ranged and melee weapons if else distance effect
 using System;
+using System.Collections.Generic;
 
 namespace EpicGame
 {
@@ -27,7 +28,7 @@ namespace EpicGame
 
         public static MonsterEnemy monstergroup = new MonsterEnemy();
 
-        string spellItem = Console.ReadLine();
+        
 
 
 
@@ -40,8 +41,13 @@ namespace EpicGame
         public string phrase4 = "The sword falls on the weeping stump.";
         public void Beginning()
         {
+            Random randomStuff = new Random();
             RainbowCave.BeginMessage = "You enter the cave of wonders";
             RainbowCave.obstacles = new string[] {"Moving rock", "Totem", "Spike mine", "Sparkle dust"};
+            RainbowCave.description = new string[] {"Shiny", "glowing", "grassy", "Rocky"};
+            Console.WriteLine("You start walking and run in to " + RainbowCave.obstacles[randomStuff.Next(0,4)]);
+            Console.WriteLine("You look around and see that the cave is " + RainbowCave.description[randomStuff.Next(0,4)]);
+            Play();
         }
      
 
@@ -52,33 +58,41 @@ namespace EpicGame
 
 public void OpenDoor(int i)
 {
+    
     Random randomDoor = new Random();
     switch(i)
     {
     case 1:
         Console.WriteLine("You encounter an" + oni.Name + "behind the " + RainbowCave.doors[randomDoor.Next(0,4)]);
         Attack(oni, battle);
+        UseSpell();
     break;
 
     case 2:
          Console.WriteLine("You encounter an" + cursedNinja.Name + "behind the " + RainbowCave.doors[randomDoor.Next(0,4)]);
          Attack(cursedNinja, battle);
+         UseSpell();
     break;
 
     case 3:
         Console.WriteLine("You encounter a" + bladePanda.Name + "behind the" + RainbowCave.doors[randomDoor.Next(0,4)] );
         Attack(bladePanda, battle);
+        UseSpell();
     break;
 
     case 4: 
         Console.WriteLine("You encounter a" + trickster.Name + "behind the" + RainbowCave.doors[randomDoor.Next(0,4)]);
         Attack(trickster, battle);
+        UseSpell();
     break; 
+
+
     }
 }
+    
     public void Play()
     {
-        Console.WriteLine("You see three items on the ground, choose one.  Choose whirlwind star, eclipsed medallion, or shining sun bar.");
+        
         Console.WriteLine("Choose doors 1 - 4");
         OpenDoor(int.Parse(Console.ReadLine()));
         RainbowCave.doors = new string[] {"Demon door", "Wood door", "Steel door", "Racoon door"};
@@ -137,9 +151,20 @@ public void OpenDoor(int i)
     {
         return battle.Health * 10;
     }
+
+    public int LuckByTen(Batallion battle)
+    {
+        return battle.Luck * 10;
+    }
+
+    public int GroupByFive(Batallion battle)
+    {
+        return battle.GroupNumber * 5;
+    }
     public void UseSpell()
     {
-        
+        Console.WriteLine("You see three items on the ground, choose one.  Choose whirlwind star, eclipsed medallion, or shining sun bar.");
+        string spellItem = Console.ReadLine();
         switch(spellItem)
         {
             case "whirlwind star":
@@ -159,29 +184,40 @@ public void OpenDoor(int i)
         while(cursedNinja.Health > 10)
         {
             Console.WriteLine("You use light beam on your enemy the cursed ninja");
+            Console.WriteLine(phrase1);
             cursedNinja.Health -= 20;
         }
 
         while(oni.Health > 10)
         {
             Console.WriteLine("You use Leaf Storm on your enemy the oni");
+            Console.WriteLine(phrase2);
             oni.Health -= 20;
         }
 
         for(int i = 0; oni.Health > i; i++)
         {
            Console.WriteLine("The oni is regenerating");
+           Console.WriteLine(phrase3);
            oni.Damage ++; 
         }
         
         
 
-        Console.WriteLine("Your health is increased by" + HealthByTen(battle));
+        Console.WriteLine("Your health is increased by " + HealthByTen(battle));
+        Console.WriteLine("Your Luck is increased by " + LuckByTen(battle));
+        Console.WriteLine("Your battle group is increased by " + GroupByFive(battle));
 
-        switch 
     }
-    public void Recover()
+    public void MoreTroops()
     {
+        List<Batallion> group = new List<Batallion>();
+
+        group.Add( new Batallion(60, 30, 60, 15, 12, "ronin sword"));
+        group.Add( new Batallion(40, 40, 40, 15, 15, "kunai and chain"));
+        group.Add( new Batallion(70, 20, 20, 10, 15, "Poison blossom"));
+        group.Add( new Batallion(50, 20, 30, 12, 12, "spike guantlets"));
+      
 
     }
     public void EnemyEncounter()

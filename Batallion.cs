@@ -2,7 +2,7 @@ using System;
 
 public class Batallion
 {
-
+    
     public Batallion()
     {
         Health = 50;

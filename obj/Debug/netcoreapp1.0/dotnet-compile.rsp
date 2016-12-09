@@ -1,5 +1,5 @@
---temp-output:d:\Users\Travis\CSharpFinal\obj\Debug\netcoreapp1.0\
---out:d:\Users\Travis\CSharpFinal\bin\Debug\netcoreapp1.0\CSharpFinal.dll
+--temp-output:D:\Users\Travis\CSharpFinal\obj\Debug\netcoreapp1.0\
+--out:D:\Users\Travis\CSharpFinal\bin\Debug\netcoreapp1.0\CSharpFinal.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -87,11 +87,11 @@
 --reference:C:\Users\Travis\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Travis\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Travis\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
-d:\Users\Travis\CSharpFinal\Battalion.cs
-d:\Users\Travis\CSharpFinal\Game.cs
-d:\Users\Travis\CSharpFinal\Program.cs
-d:\Users\Travis\CSharpFinal\Scripts\GameScripts\Gameplay\DeepForestLevel.cs
-d:\Users\Travis\CSharpFinal\Scripts\GameScripts\Gameplay\LevelTemplate.cs
-d:\Users\Travis\CSharpFinal\Scripts\GameScripts\Gameplay\MonsterEnemy.cs
-d:\Users\Travis\CSharpFinal\Scripts\GameScripts\PowerAttributes\Spells.cs
-d:\Users\Travis\CSharpFinal\Scripts\GameScripts\weapons\WeaponBase.cs
+D:\Users\Travis\CSharpFinal\Batallion.cs
+D:\Users\Travis\CSharpFinal\Game.cs
+D:\Users\Travis\CSharpFinal\Program.cs
+D:\Users\Travis\CSharpFinal\Scripts\GameScripts\Gameplay\DeepForestLevel.cs
+D:\Users\Travis\CSharpFinal\Scripts\GameScripts\Gameplay\LevelTemplate.cs
+D:\Users\Travis\CSharpFinal\Scripts\GameScripts\Gameplay\MonsterEnemy.cs
+D:\Users\Travis\CSharpFinal\Scripts\GameScripts\PowerAttributes\Spells.cs
+D:\Users\Travis\CSharpFinal\Scripts\GameScripts\weapons\WeaponBase.cs

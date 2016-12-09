@@ -2,11 +2,11 @@ using System;
 
 public class Spells
 {
-        public int MoonStrike(int Damage)
+        public void MoonStrike(int Damage)
         {
         int betterDamage = Damage + 30;
         }
-        public int LightBeam(int Damage, int Health)
+        public void LightBeam(int Damage, int Health)
         {
         int betterDamage = Damage + 10;
         int betterLuck = Health + 10;
