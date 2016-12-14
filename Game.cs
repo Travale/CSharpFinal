@@ -63,7 +63,7 @@ public void OpenDoor(int i)
     switch(i)
     {
     case 1:
-        Console.WriteLine("You encounter an" + oni.Name + "behind the " + RainbowCave.doors[randomDoor.Next(0,4)]);
+        Console.WriteLine("You encounter an " + oni.Name + " behind the");
         Attack(oni, battle);
         UseSpell();
     break;
@@ -88,23 +88,24 @@ public void OpenDoor(int i)
 
 
     }
+    Console.ReadKey();
 }
     
     public void Play()
     {
-        
+        int door;
         Console.WriteLine("Choose doors 1 - 4");
-        OpenDoor(int.Parse(Console.ReadLine()));
+        door = int.Parse(Console.ReadLine());
         RainbowCave.doors = new string[] {"Demon door", "Wood door", "Steel door", "Racoon door"};
-
+        OpenDoor(door);
 
     }
 
     public void Attack(MonsterEnemy monstergroup, Batallion battle)
     {
         monstergroup.monster = new string[] {"oni","cursed ninja","blade panda", "trickster"};
-        Console.WriteLine("Which weapon do you have?");
-        string input = Console.ReadLine();
+        Console.WriteLine("Which weapon do you have? A Bow or Sword?");
+        battle.Weapon = Console.ReadLine();
         if(battle.Weapon == "Sword")
         {
             Console.WriteLine("You rush up to one range of your enemy");
@@ -114,7 +115,10 @@ public void OpenDoor(int i)
             Console.WriteLine("You move in to five range of your enemy");
         }
         else
+        {
             Console.WriteLine("You have nowhere to move");
+        }
+     
         for(int i = 0;  i < battle.GroupNumber ; i++ )
         {
            Console.WriteLine("You gained one man");
