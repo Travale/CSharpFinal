@@ -44,12 +44,9 @@ namespace EpicGame
             Random randomStuff = new Random();
             RainbowCave.BeginMessage = "You enter the cave of wonders";
             RainbowCave.obstacles = new string[] {"Moving rock", "Totem", "Spike mine", "Sparkle dust"};
-<<<<<<< HEAD
             RainbowCave.description = new string[] {"Shiny", "glowing", "grassy", "Rocky"};
             Console.WriteLine("You start walking and run in to " + RainbowCave.obstacles[randomStuff.Next(0,4)]);
             Console.WriteLine("You look around and see that the cave is " + RainbowCave.description[randomStuff.Next(0,4)]);
-=======
->>>>>>> 0b21fa5b2d83ce5dc78cc4b4d525ea2ba4d36228
             Play();
         }
      
@@ -208,28 +205,22 @@ public void OpenDoor(int i)
            Console.WriteLine(phrase3);
            oni.Damage ++; 
         }
+    }
     
         
-<<<<<<< HEAD
+public void Recovery()
+    {
         
 
         Console.WriteLine("Your health is increased by " + HealthByTen(battle));
         Console.WriteLine("Your Luck is increased by " + LuckByTen(battle));
         Console.WriteLine("Your battle group is increased by " + GroupByFive(battle));
-=======
         Console.WriteLine("Your health is increased by" + HealthByTen(battle));
->>>>>>> 0b21fa5b2d83ce5dc78cc4b4d525ea2ba4d36228
-
     }
-<<<<<<< HEAD
-    public void MoreTroops()
-=======
-    
-    public void Recover()
->>>>>>> 0b21fa5b2d83ce5dc78cc4b4d525ea2ba4d36228
+
+public void MoreTroops()
     {
         List<Batallion> group = new List<Batallion>();
-
         group.Add( new Batallion(60, 30, 60, 15, 12, "ronin sword"));
         group.Add( new Batallion(40, 40, 40, 15, 15, "kunai and chain"));
         group.Add( new Batallion(70, 20, 20, 10, 15, "Poison blossom"));
